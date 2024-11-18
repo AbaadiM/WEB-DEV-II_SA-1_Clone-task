@@ -1,0 +1,274 @@
+/* Define CSS Variables */
+:root {
+    --primary-color: #333;
+    --secondary-color: #555;
+    --background-color: #f4f4f4;
+    --footer-background-color: #14181d;
+    --footer-text-color: white;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --border-color: #ccc;
+  
+    /* Font Sizes */
+    --font-size-small: 1em;
+    --font-size-medium: 1.2em;
+    --font-size-large: 1.8em;
+    --font-size-title: 6em;
+    --font-size-subtitle: 4.5em;
+    --font-size-heading: 3em;
+    --font-size-nav: 18px;
+  
+    /* Padding and Margin */
+    --main-padding: 20px;
+    --header-margin-bottom: 20px;
+    --column-margin-bottom: 20px;
+    --footer-padding: 20px 0;
+  }
+  
+  /* General Reset and Box Sizing */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body */
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Image styling */
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Logo */
+  .top-logo img {
+    width: 200px;
+    margin: var(--main-padding) auto;
+    display: block;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--header-margin-bottom);
+  }
+  
+  nav {
+    display: flex;
+    gap: 200px;
+    font-size: var(--font-size-nav);
+  }
+  
+  nav a {
+    color: var(--primary-color);
+  }
+  
+  /* Main Content */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--main-padding);
+    background-color: white;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+  }
+  
+  .ttle-section h1 {
+    font-family: 'Protest Guerrilla', sans-serif;
+    font-size: var(--font-size-title);
+    margin-bottom: 10px;
+  }
+  
+  .ttle-section h2 {
+    font-family: 'Protest Guerrilla', sans-serif;
+    font-size: var(--font-size-subtitle);
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+  }
+  
+  .ttle-section p:first-of-type {
+    font-size: var(--font-size-large);
+    line-height: 1.9;
+    font-weight: bold;
+  }
+  
+  .ttle-section p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: var(--font-size-medium);
+    line-height: 1.8;
+  }
+  
+  .cont-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  
+  .cont-column {
+    width: 32%;
+    margin-bottom: var(--column-margin-bottom);
+  }
+  
+  .cont-column h3 {
+    font-family: 'Protest Guerrilla', sans-serif;
+    font-size: var(--font-size-heading);
+    margin-bottom: 10px;
+  }
+  
+  .cont-column p {
+    font-size: var(--font-size-small);
+    margin-bottom: 20px;
+  }
+  
+  /* Gallery */
+  .gall {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 50px;
+    gap: 0;
+  }
+  
+  .albumm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  
+  .web-album {
+    width: 100%;
+    height: 410px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    background-color: #eee;
+  }
+  
+  .albumm-cover {
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+  }
+  
+  /* Profile Section */
+  .profile-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+    max-width: 800px;
+  }
+  
+  .profile-info {
+    flex: 1;
+    text-align: left;
+    margin-right: 20px;
+  }
+  
+  .profile-photo {
+    margin-left: 20px;
+  }
+  
+  .profile-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: var(--footer-padding);
+    width: 100%;
+    box-shadow: 0px -2px 5px var(--primary-color);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .gall {
+      grid-template-columns: 1fr;
+    }
+  
+    .albumm-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .cont-section {
+      flex-direction: column;
+    }
+  
+    .cont-column {
+      width: 100%;
+    }
+  
+    .ttle-section h1 {
+      font-size: 4em;
+    }
+  
+    .ttle-section h2 {
+      font-size: 3em;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ttle-section h1 {
+      font-size: 2em;
+    }
+  
+    .ttle-section h2 {
+      font-size: 1.2em;
+    }
+  
+    .profile-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profile-info {
+      width: 100%;
+    }
+  
+    .profile-photo img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ttle-section h1 {
+      font-size: 1.5em;
+    }
+  
+    .ttle-section h2 {
+      font-size: 1em;
+    }
+  
+    .profile-photo img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  

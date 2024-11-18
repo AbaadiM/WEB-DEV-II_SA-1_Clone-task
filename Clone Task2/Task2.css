@@ -1,0 +1,255 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Teko:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* CSS Variables */
+:root {
+    --color-primary: #231651;
+    --color-background: #4dccbd;
+    --color-text: #FFFFFF;
+    --color-shadow: #070410;
+    --spacing-small: 16px;
+    --spacing-medium: 32px;
+    --spacing-large: 48px;
+    --border-radius: 10px;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--color-background);
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+/* Navigation Styles */
+.top-nav {
+    background-color: var(--color-primary);
+    padding: var(--spacing-small);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text);
+    font-family: "Teko", sans-serif;
+    box-shadow: 0 10px 5px var(--color-shadow);
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+.menu {
+    display: flex;
+    gap: 48px;
+    font-size: 1.2em;
+}
+
+.menu a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.search-btn {
+    font-size: 2em;
+    font-family: "Teko", sans-serif;
+    padding: var(--spacing-small);
+    border: 0;
+    border-radius: var(--border-radius);
+    color: var(--color-shadow);
+}
+
+/* Content Layout */
+.content-wrapper {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-areas: 
+        "animated animated"
+        "musical biopic"
+        "fantasy fantasy"
+        "romance romance"
+        "adventure adventure";
+    margin: var(--spacing-large) auto;
+    gap: var(--spacing-small);
+}
+
+/* Movie Card Base Styles */
+.movie-card {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    font-size: 1.5em;
+    margin: var(--spacing-small);
+    box-shadow: 10px 10px 10px var(--color-shadow);
+    display: grid;
+}
+
+.poster img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+}
+
+.content {
+    box-sizing: border-box;
+    padding: var(--spacing-small);
+    display: flex;
+    gap: var(--spacing-small);
+}
+
+.watch-button {
+    font-size: 2em;
+    font-family: "Teko", sans-serif;
+    padding: var(--spacing-small);
+    border: 0;
+    border-radius: var(--border-radius);
+    color: var(--color-shadow);
+}
+
+/* Specific Movie Card Layouts */
+.animated {
+    grid-area: animated;
+    grid-template-rows: 1fr 0.6fr;
+    grid-template-areas: 
+        "poster poster"
+        "content button";
+}
+
+.animated img {
+    width: 100%;
+    height: 250px;
+    object-position: 0% 12%;
+}
+
+.animated .content {
+    flex: 1;
+}
+
+.musical, .biopic {
+    grid-template-rows: 1.25fr 1fr;
+    grid-template-areas: 
+        "poster"
+        "content";
+}
+
+.musical {
+    grid-area: musical;
+}
+
+.biopic {
+    grid-area: biopic;
+}
+
+.musical .content, .biopic .content {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.musical img, .biopic img {
+    width: 100%;
+    height: 100%;
+}
+
+.fantasy, .romance, .adventure {
+    grid-template-areas: "poster content";
+}
+
+.fantasy {
+    grid-area: fantasy;
+}
+
+.romance {
+    grid-area: romance;
+}
+
+.adventure {
+    grid-area: adventure;
+}
+
+.fantasy .content, .romance .content, .adventure .content {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1023px) {
+    .content-wrapper {
+        margin: var(--spacing-medium);
+        grid-template-areas: 
+            "animated musical"
+            "biopic fantasy"
+            "romance adventure";
+    }
+
+    .movie-card {
+        grid-auto-columns: minmax(100px, 1fr);
+    }
+
+    .movie-card .content {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .movie-card img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .animated {
+        grid-template-areas: 
+            "poster"
+            "content";
+        grid-template-rows: 0.5fr 1fr;
+    }
+
+    .musical, .biopic {
+        grid-template-rows: 0.5fr 1fr;
+    }
+
+    .fantasy, .romance, .adventure {
+        grid-template-areas: 
+            "poster"
+            "content";
+        grid-template-rows: 0.5fr 1fr;
+    }
+}
+
+@media screen and (max-width: 719px) {
+    .top-nav {
+        margin-bottom: var(--spacing-small);
+        box-shadow: none;
+    }
+
+    .brand h1 {
+        font-size: 2em;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .content-wrapper {
+        max-width: 100%;
+        margin: 0;
+        gap: 0;
+        grid-template-areas: 
+            "animated"
+            "musical"
+            "biopic"
+            "fantasy"
+            "romance"
+            "adventure";
+    }
+
+    .movie-card {
+        margin: 0 0 var(--spacing-small) 0;
+        box-shadow: none;
+        grid-template-rows: auto;
+    }
+
+    .movie-card .content {
+        justify-content: flex-start;
+    }
+
+    .watch-button {
+        padding: 0;
+    }
+}
